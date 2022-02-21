@@ -1,4 +1,4 @@
-class CheckoutRepo {
+class CheckoutRepo extends RepoBase {
 
     create(data) {
         data.id = Math.random();
@@ -9,11 +9,12 @@ class CheckoutRepo {
         return Checkout.findOne( { id } );
     }
 
+    findAll (query) {
+        return Checkout.find(query);
+    }
+
     findByCustomerId(customerId) {
         return Checkout.findOne( { customerId } );
     }
 
-    findAll (query) {
-        return Checkout.find(query);
-    }
 }

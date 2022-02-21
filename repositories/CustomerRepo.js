@@ -1,4 +1,4 @@
-class CustomerRepo {
+class CustomerRepo extends RepoBase {
 
     create(data) {
         data.id = Math.random();
@@ -9,11 +9,11 @@ class CustomerRepo {
         return Customer.findOne( { id } );
     }
 
-    findByEmail(email) {
-        return Customer.findOne( { email } );
-    }
-
     findAll (query) {
         return Customer.find(query);
+    }
+
+    findByEmail(email) {
+        return Customer.findOne( { email } );
     }
 }

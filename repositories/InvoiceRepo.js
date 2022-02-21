@@ -1,4 +1,4 @@
-class InvoiceRepo {
+class InvoiceRepo extends RepoBase {
 
     create(data) {
         data.id = Math.random();
@@ -9,11 +9,12 @@ class InvoiceRepo {
         return Invoice.findOne( { id } );
     }
 
+    findAll (query) {
+        return Invoice.find(query);
+    }
+
     findByCustomerId(customerId) {
         return Invoice.findOne( { customerId } );
     }
 
-    findAll (query) {
-        return Invoice.find(query);
-    }
 }

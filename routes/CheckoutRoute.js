@@ -2,9 +2,9 @@
 
 router.group('/v1/checkouts', rt => {
 
-    rt.post('/', CheckoutController.createCheckout)
-    rt.get('/', CheckoutController.getCheckouts)
-    rt.get('/:checkoutId', CheckoutController.getCheckout)
+    rt.post('/', ValidationMiddlware.bodyValidation(checkoutSchema), CheckoutController.createCheckout)
+    rt.get('/', ValidationMiddlware.pathValidation(checkoutQuerySchema), CheckoutController.getCheckouts)
+    rt.get('/:checkoutId', ValidationMiddlware.pathValidation(checkoutPathSchema),  CheckoutController.getCheckout)
 
 })
 
