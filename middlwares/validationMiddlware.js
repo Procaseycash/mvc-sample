@@ -1,5 +1,4 @@
 class ValidationMiddlware {
-
     bodyValidation(schema) {
         return (req, res, next) => {
             try {
@@ -9,7 +8,6 @@ class ValidationMiddlware {
             }
         };
     }
-
     queryValidation(schema) {
         return (req, res, next) => {
             try {
@@ -20,7 +18,6 @@ class ValidationMiddlware {
         };
     }
 
-
     pathValidation(schema) {
         return (req, res, next) => {
             try {
@@ -30,6 +27,4 @@ class ValidationMiddlware {
             }
         };
     }
-
-
 }
