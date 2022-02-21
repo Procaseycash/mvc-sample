@@ -17,4 +17,17 @@ class ResponseHandler {
         res.status(statusCode).json({data, message, status: statusCode})
     }
 
+
+    globalError(err, req, res) {
+        const statusCode = err.code || 400;
+        const message = e.message || 'Unknown error';
+
+        // We can do more in this error layer
+        logger.error(req.traceId, message , {url: req.originalUrl, details: e.stack});
+
+        // Other format for how error is return, a format can be agreed upon
+        // {data: [list of errors flagged], message: 'some validation for name & email are incorrect', status: 400 }
+        res.status(statusCode).json({data: [], message, status: statusCode})
+    }
+
 }
