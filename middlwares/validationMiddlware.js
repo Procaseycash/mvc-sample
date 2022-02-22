@@ -3,6 +3,7 @@ class ValidationMiddlware {
         return (req, res, next) => {
             try {
                 schema.validate( req.body );
+                next()
             } catch ( e ) {
                 ResponseHandler.error( res, e );
             }
@@ -12,6 +13,7 @@ class ValidationMiddlware {
         return (req, res, next) => {
             try {
                 schema.validate( req.query );
+                next()
             } catch ( e ) {
                 ResponseHandler.error( res, e );
             }
@@ -22,6 +24,7 @@ class ValidationMiddlware {
         return (req, res, next) => {
             try {
                 schema.validate( req.params );
+                next()
             } catch ( e ) {
                 ResponseHandler.error( res, e );
             }
